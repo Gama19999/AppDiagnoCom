@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DiagnoCom</string>
+    <string name="login_app_name">DiagnoCom</string>
+    <string name="login_full_name">Sistema Experto Diagnosticador\nde Enfermedades Comunes</string>
+    <string name="login_bk">Fondo del login</string>
+    <string name="login_u">Usuario</string>
+    <string name="login_c">Constraseña</string>
+    <string name="login_acc_btn">Acceder</string>
+    <string name="login_reg_btn">Registrarse</string>
+</resources>

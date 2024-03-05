@@ -8,13 +8,25 @@
         tools:context=".MainActivity">
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/login_bk"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_bk"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/login_bk"
             android:scaleType="centerInside" android:adjustViewBounds="true"
             android:cropToPadding="false" app:srcCompat="@drawable/login_bk" android:scaleY="1.35"/>
+    <ImageView
+            android:layout_width="153dp"
+            android:layout_height="244dp"
+            android:id="@+id/login_app_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/login_app_icon"
+            android:scaleType="centerInside" android:adjustViewBounds="true"
+            android:cropToPadding="false" app:srcCompat="@drawable/diagnocom"
+            app:layout_constraintVertical_bias="0.278" app:layout_constraintHorizontal_bias="0.523"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,8 +35,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.153"
-            android:id="@+id/login_an" style="@style/loginTextBold" app:layout_constraintHorizontal_bias="0.504"/>
+            app:layout_constraintVertical_bias="0.127"
+            android:id="@+id/login_an" style="@style/loginTextBold"/>
     <TextView
             android:text="@string/login_full_name"
             android:layout_width="wrap_content"
@@ -35,33 +47,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:textAlignment="center" style="@style/loginTextRegular"
-            app:layout_constraintVertical_bias="0.328"/>
-    <EditText
+            app:layout_constraintVertical_bias="0.533"/>
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
-            android:id="@+id/login_u"
+            android:id="@+id/login_alert"
+            android:text="@string/login_alert"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.543" app:layout_constraintVertical_bias="0.466"
-            style="@style/regularText" android:minHeight="55dp" android:autofillHints="username"
-            android:hint="@string/login_u"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/login_c"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.543" app:layout_constraintVertical_bias="0.576"
-            style="@style/regularText" android:minHeight="55dp" android:autofillHints="password"
-            android:hint="@string/login_c"/>
+            app:layout_constraintVertical_bias="0.657"
+            style="@style/regularText"/>
     <Button
             android:text="@string/login_acc_btn"
             android:layout_width="wrap_content"
@@ -71,18 +68,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.726"
-            style="@style/loginButton" app:layout_constraintHorizontal_bias="0.498"/>
-    <Button
-            android:text="@string/login_reg_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/login_reg_btn"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.878"
-            style="@style/loginButton" app:layout_constraintHorizontal_bias="0.498"/>
+            app:layout_constraintVertical_bias="0.796"
+            style="@style/loginButton" app:layout_constraintHorizontal_bias="0.498"
+            android:onClick="login_acc_btn"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,16 @@
 <resources>
+    <!-- Login View Strings -->
     <string name="app_name">DiagnoCom</string>
     <string name="login_app_name">DiagnoCom</string>
     <string name="login_full_name">Sistema Experto Diagnosticador\nde Enfermedades Comunes</string>
+
     <string name="login_bk">Fondo del login</string>
-    <string name="login_u">Usuario</string>
-    <string name="login_c">Constraseña</string>
+    <string name="login_app_icon">Icono de aplicacion login</string>
+
+    <string name="login_alert">Presione acceder para comenzar</string>
     <string name="login_acc_btn">Acceder</string>
-    <string name="login_reg_btn">Registrarse</string>
+
+    <!-- SE1F View Strings -->
+    <string name="se1f_bk">Fondo de la vista se1f</string>
+
 </resources>

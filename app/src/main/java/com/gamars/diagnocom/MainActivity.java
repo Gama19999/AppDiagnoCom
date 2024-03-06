@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onAuthenticationSucceeded(@NonNull @NotNull BiometricPrompt.AuthenticationResult result) {
                         super.onAuthenticationSucceeded(result);
                         Toast.makeText(getApplicationContext(),
-                                "Autenticación exitosa!", Toast.LENGTH_SHORT)
+                                "¡Autenticación exitosa!", Toast.LENGTH_SHORT)
                                 .show();
 
                         // On successful authentication pass to next activity
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle("Solicitud de acceso para app DiagnoCom")
+                .setTitle("Seguridad de app DiagnoCom")
                 .setSubtitle("Accede por autenticación biométrica o contraseña")
                 // Allows device pin
                 .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_WEAK |

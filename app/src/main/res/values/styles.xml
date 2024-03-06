@@ -30,6 +30,26 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="midRegularText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/madimione</item>
+        <item name="fontFamily">@font/madimione</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHighlight">@color/highlight</item>
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="bigRegularText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/madimione</item>
+        <item name="fontFamily">@font/madimione</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHighlight">@color/highlight</item>
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="loginButton" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/madimione</item>
         <item name="fontFamily">@font/madimione</item>

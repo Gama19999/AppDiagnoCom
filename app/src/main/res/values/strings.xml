@@ -1,16 +1,62 @@
 <resources>
-    <!-- Login View Strings -->
+    <!-- ****** Login View Strings ****** -->
     <string name="app_name">DiagnoCom</string>
     <string name="login_app_name">DiagnoCom</string>
     <string name="login_full_name">Sistema Experto Diagnosticador\nde Enfermedades Comunes</string>
-
     <string name="login_bk">Fondo del login</string>
-    <string name="login_app_icon">Icono de aplicacion login</string>
-
+    <string name="app_icon">Icono de aplicacion login</string>
     <string name="login_alert">Presione acceder para comenzar</string>
     <string name="login_acc_btn">Acceder</string>
 
-    <!-- SE1F View Strings -->
+    <!-- ****** SE1F View Strings ****** -->
+    <!-- SE1F Notice Elements START -->
     <string name="se1f_bk">Fondo de la vista se1f</string>
+    <string name="se1f_notice">
+        El presente sistema experto infiere un\n
+        diagnóstico médico preliminar basado\n
+        en los síntomas ingresados en la app.\n\n
+        Se cotejan las entradas del usuario\n
+        contra una base de reglas previas\n
+        evaluadas por un experto en materia\n
+        de salud para dictaminar un resultado\n
+        genérico.\n\n
+        Se recomienda acudir al médico para\n
+        obtener detalles más específicos si\n
+        presenta cualquiera de los síntomas\n
+        que se exponen.\n\n
+        Entiendo y estoy de acurdo:
+    </string>
+    <string name="se1f_right">Acepto</string>
+    <string name="se1f_decline">No acepto</string>
+    <!-- SE1F Notice Elements END -->
+    <!-- SE1F Options Elements START -->
+    <string name="se1f_title">Lugar del malestar</string>
+    <string name="se1f_directions">
+        Seleccione la opción que más se adecue al\nmalestar que presenta.
+    </string>
+    <string name="se1f_d_cabeza">Malestar en la cabeza</string>
+    <string name="se1f_d_respir">Malestar al respirar</string>
+    <string name="se1f_d_digest">Malestar al comer u obrar</string>
+    <string name="se1f_d_intern">Malestar en abdomen o espalda</string>
+    <string name="se1f_d_urinar">Malestar al orinar</string>
+    <string name="se1f_d_piel">Malestar en la piel</string>
+    <string name="se1f_next_dir1">Presione siguiente para continuar con el\ndiagnóstico.</string>
+    <string name="se1f_cont">Siguiente</string>
+    <!-- SE1F Options Elements END -->
+    <!-- SE1F Dx Elements START -->
+    <string name="se1f_dx_prev">
+        Dada la localización de\nsu malestar su\n
+        diagnóstico parcial\ngeneral es:
+    </string>
+    <string name="se1f_dx_empty">empty</string>
+    <string name="se1f_dx_dcabeza">Dx: Afección cefálica</string>
+    <string name="se1f_dx_drespir">Dx: Afección respiratoria</string>
+    <string name="se1f_dx_ddigest">Dx: Afección digestiva</string>
+    <string name="se1f_dx_dintern">Dx: Afección interna</string>
+    <string name="se1f_dx_durinar">Dx: Afección urinaria</string>
+    <string name="se1f_dx_dpiel">Dx: Afección cutánea</string>
+    <string name="se1f_dx_back">Regresar</string>
+    <!-- SE1F Dx Elements END -->
+    <string name="se1f_exit_btn">Salir</string>
 
 </resources>

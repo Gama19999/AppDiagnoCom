@@ -11,11 +11,15 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
+import com.gamars.diagnocom.basereglas.DiagnoComBR;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Stack;
 import java.util.concurrent.Executor;
 
 public class MainActivity extends AppCompatActivity {
+    protected static final DiagnoComBR ruleBase = new DiagnoComBR();
+    protected static final Stack<String> chainings = new Stack<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

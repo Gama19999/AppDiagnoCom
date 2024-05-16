@@ -3,6 +3,8 @@ package com.gamars.diagnocom;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
@@ -11,8 +13,26 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.Objects;
+
+import static java.util.Map.entry;
 
 public class SE1FActivity extends AppCompatActivity {
+    private final ArrayList<Integer> options = new ArrayList<>(Arrays.asList(
+        R.id.se1f_d_cabeza, R.id.se1f_d_respiratorio, R.id.se1f_d_digestivo,
+        R.id.se1f_d_interno, R.id.se1f_d_urinario, R.id.se1f_d_cutaneo
+    ));
+
+    private final Map<Integer, Integer> se1fOptionsResult = Map.ofEntries(
+            entry(R.id.se1f_d_cabeza, R.string.se1f_dx_cabeza),
+            entry(R.id.se1f_d_respiratorio, R.string.se1f_dx_respiratorio),
+            entry(R.id.se1f_d_digestivo, R.string.se1f_dx_digestivo),
+            entry(R.id.se1f_d_interno, R.string.se1f_dx_interno),
+            entry(R.id.se1f_d_urinario, R.string.se1f_dx_urinario),
+            entry(R.id.se1f_d_cutaneo, R.string.se1f_dx_cutaneo)
+    );
+
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +49,24 @@ public class SE1FActivity extends AppCompatActivity {
      */
     public void noticeAccepted(View v) {
         findViewById(R.id.se1f_notice).setVisibility(View.GONE);
-        findViewById(R.id.se1f_right).setVisibility(View.GONE);
-        findViewById(R.id.se1f_decline).setVisibility(View.GONE);
+        findViewById(R.id.se1f_accept_notice).setVisibility(View.GONE);
+        findViewById(R.id.se1f_decline_notice).setVisibility(View.GONE);
         Toast.makeText(getApplicationContext(), "¡Previo aviso aceptado!", Toast.LENGTH_SHORT).show();
-        showHideROptions(View.VISIBLE);
+        toggleViewOptionsItems(View.VISIBLE);
+    }
+
+    /**
+     * Sets the visibility for the radio options elements in the SE1F view
+     * @param visibility View.CONSTANT (VISIBLE, INVISIBLE, GONE)
+     */
+    private void toggleViewOptionsItems(int visibility) {
+        new ArrayList<View>(Arrays.asList(
+                findViewById(R.id.se1f_frame_title),
+                findViewById(R.id.se1f_frame_directions),
+                findViewById(R.id.se1f_options),
+                findViewById(R.id.se1f_next_directions),
+                findViewById(R.id.se1f_continue_btn)
+        )).forEach(i -> i.setVisibility(visibility));
     }
 
     /**
@@ -42,12 +76,31 @@ public class SE1FActivity extends AppCompatActivity {
      * @param v View from where the event was fired
      */
     public void get1stDiagnose(View v) {
-        showHideROptions(View.INVISIBLE);
+        RadioGroup options = findViewById(R.id.se1f_options);
 
-        // TODO llamar al metodo de forward chain the la base de reglas
+        if (options.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Seleccione opción", Toast.LENGTH_SHORT).show();
+        } else {
+            toggleViewOptionsItems(View.INVISIBLE);
+            doForwardChaining();
+            toggleViewDxItems(View.VISIBLE);
+        }
+    }
 
-        // TODO establecer la string adecuada al textview 'se1f_res_dx'
-        showHideDxOptions(View.VISIBLE);
+    private void doForwardChaining() {
+        var choices = new ArrayList<String>();
+        for (int opt : options) choices.add(((RadioButton) findViewById(opt)).isChecked() ? "si" : "no");
+        handleResult(MainActivity.ruleBase.getAfeccion(choices));
+    }
+
+    private void handleResult(Object result) {
+        if (Objects.isNull(result)) {
+            Toast.makeText(getApplicationContext(), "Resultado desconocido!", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Hecho: ( " + result + " )", Toast.LENGTH_SHORT).show();
+            ((TextView) findViewById(R.id.se1f_dx_result)).setText(result.toString());
+            MainActivity.chainings.push(result.toString());
+        }
     }
 
     /**
@@ -55,27 +108,14 @@ public class SE1FActivity extends AppCompatActivity {
      * view aka the view with the radio buttons
      * @param v View from where the event was fired
      */
-    public void se1fDxBack(View v) {
-        showHideDxOptions(View.INVISIBLE);
+    public void se1fBackBtn(View v) {
+        toggleViewDxItems(View.INVISIBLE);
+
 
         // TODO checar si en la base de reglas se tiene que modif el encadenamiento
 
-        showHideROptions(View.VISIBLE);
-    }
 
-    /**
-     * Sets the visibility for the radio options elements in the SE1F
-     * view
-     * @param visibility View.CONSTANT (VISIBLE, INVISIBLE, GONE)
-     */
-    private void showHideROptions(int visibility) {
-        new ArrayList<View>(Arrays.asList(
-                findViewById(R.id.se1f_title),
-                findViewById(R.id.se1f_directions),
-                findViewById(R.id.se1f_rg1),
-                findViewById(R.id.se1f_next_dir1),
-                findViewById(R.id.se1f_cont)
-        )).forEach(i -> i.setVisibility(visibility));
+        toggleViewOptionsItems(View.VISIBLE);
     }
 
     /**
@@ -83,15 +123,12 @@ public class SE1FActivity extends AppCompatActivity {
      * view and resets the partial Dx string
      * @param visibility View.CONSTANT (VISIBLE, INVISIBLE, GONE)
      */
-    private void showHideDxOptions(int visibility) {
+    private void toggleViewDxItems(int visibility) {
         new ArrayList<View>(Arrays.asList(
-                findViewById(R.id.se1f_dx_prev),
-                findViewById(R.id.se1f_res_dx),
-                findViewById(R.id.se1f_dx_back)
+                findViewById(R.id.se1f_dx_introduction),
+                findViewById(R.id.se1f_dx_result),
+                findViewById(R.id.se1f_back_btn)
         )).forEach(i -> i.setVisibility(visibility));
-        if (visibility == View.INVISIBLE) {
-            ((TextView) findViewById(R.id.se1f_res_dx)).setText(R.string.se1f_dx_empty);
-        }
     }
 
     /**

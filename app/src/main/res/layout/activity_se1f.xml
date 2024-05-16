@@ -7,20 +7,20 @@
         android:layout_height="match_parent"
         tools:context=".SE1FActivity">
     <ImageView
+            android:id="@+id/se1f_app_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_bk"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/se1f_bk"
+            app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/se1f_app_background"
             android:scaleType="centerInside" android:adjustViewBounds="true"
             android:cropToPadding="false" app:srcCompat="@drawable/sef1_bk" android:scaleY="1.35"/>
     <TextView
+            android:id="@+id/se1f_app_name"
+            android:text="@string/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:id="@+id/se1f_an"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,9 +29,9 @@
             app:layout_constraintHorizontal_bias="0.164"
             app:layout_constraintVertical_bias="0.046"/>
     <ImageView
+            android:id="@+id/top_app_icon"
             android:layout_width="55dp"
             android:layout_height="74dp"
-            android:id="@+id/top_app_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +52,10 @@
             app:layout_constraintVertical_bias="0.0"
             android:backgroundTint="@color/black"/>
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/se1f_notice"
             android:text="@string/se1f_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -66,10 +66,10 @@
             app:layout_constraintVertical_bias="0.359"
             tools:visibility="gone"/>
     <Button
-            android:text="@string/se1f_right"
+            android:id="@+id/se1f_accept_notice"
+            android:text="@string/se1f_accept_notice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_right"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,24 +79,24 @@
             android:onClick="noticeAccepted"
             tools:visibility="gone"/>
     <Button
-            android:text="@string/se1f_decline"
+            android:id="@+id/se1f_decline_notice"
+            android:text="@string/se1f_decline_notice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_decline"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.828"
             style="@style/loginButton"
-            android:onClick="closeApp"
             app:layout_constraintHorizontal_bias="0.498"
+            android:onClick="closeApp"
             tools:visibility="gone"/>
     <TextView
+            android:id="@+id/se1f_frame_title"
+            android:text="@string/se1f_frame_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_title"
-            android:text="@string/se1f_title"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -106,22 +106,22 @@
             app:layout_constraintVertical_bias="0.194"
             android:visibility="invisible"/>
     <TextView
+            android:id="@+id/se1f_frame_directions"
+            android:text="@string/se1f_frame_directions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_directions"
-            android:text="@string/se1f_directions"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/regularText"
-            app:layout_constraintHorizontal_bias="0.418"
+            app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintVertical_bias="0.272"
             android:visibility="invisible"/>
     <RadioGroup
+            android:id="@+id/se1f_options"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_rg1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,47 +130,47 @@
             app:layout_constraintVertical_bias="0.540"
             android:visibility="invisible">
         <RadioButton
-                android:text="@string/se1f_d_cabeza"
                 android:id="@+id/se1f_d_cabeza"
+                android:text="@string/se1f_d_cabeza"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/regularText"/>
         <RadioButton
-                android:text="@string/se1f_d_respir"
-                android:id="@+id/se1f_d_respir"
+                android:id="@+id/se1f_d_respiratorio"
+                android:text="@string/se1f_d_respiratorio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/regularText"/>
         <RadioButton
-                android:text="@string/se1f_d_digest"
-                android:id="@+id/se1f_d_digest"
+                android:id="@+id/se1f_d_digestivo"
+                android:text="@string/se1f_d_digestivo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/regularText"/>
         <RadioButton
-                android:text="@string/se1f_d_intern"
-                android:id="@+id/se1f_d_intern"
+                android:id="@+id/se1f_d_interno"
+                android:text="@string/se1f_d_interno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/regularText"/>
         <RadioButton
-                android:text="@string/se1f_d_urinar"
-                android:id="@+id/se1f_d_urinar"
+                android:id="@+id/se1f_d_urinario"
+                android:text="@string/se1f_d_urinario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/regularText"/>
         <RadioButton
-                android:text="@string/se1f_d_piel"
-                android:id="@+id/se1f_d_piel"
+                android:id="@+id/se1f_d_cutaneo"
+                android:text="@string/se1f_d_cutaneo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/regularText"/>
     </RadioGroup>
     <TextView
+            android:id="@+id/se1f_next_directions"
+            android:text="@string/se1f_next_directions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_next_dir1"
-            android:text="@string/se1f_next_dir1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -180,11 +180,11 @@
             app:layout_constraintVertical_bias="0.784"
             android:visibility="invisible"/>
     <TextView
+            android:id="@+id/se1f_dx_introduction"
+            android:text="@string/se1f_dx_introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_dx_prev"
             android:textAlignment="center"
-            android:text="@string/se1f_dx_prev"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -194,11 +194,11 @@
             style="@style/midRegularText"
             android:visibility="invisible"/>
     <TextView
+            android:id="@+id/se1f_dx_result"
+            android:text="@string/se1f_dx_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_res_dx"
             android:textAlignment="center"
-            android:text="@string/se1f_dx_empty"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -208,10 +208,10 @@
             style="@style/midRegularText"
             android:visibility="invisible"/>
     <Button
-            android:text="@string/se1f_dx_back"
+            android:id="@+id/se1f_back_btn"
+            android:text="@string/se1f_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_dx_back"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -219,13 +219,13 @@
             app:layout_constraintVertical_bias="0.957"
             style="@style/loginButton"
             app:layout_constraintHorizontal_bias="0.471"
-            android:onClick="se1fDxBack"
+            android:onClick="se1fBackBtn"
             android:visibility="invisible"/>
     <Button
-            android:text="@string/se1f_cont"
+            android:id="@+id/se1f_continue_btn"
+            android:text="@string/se1f_continue_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_cont"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -236,10 +236,10 @@
             android:onClick="get1stDiagnose"
             android:visibility="invisible"/>
     <Button
+            android:id="@+id/se1f_exit_btn"
             android:text="@string/se1f_exit_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/se1f_exit_btn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

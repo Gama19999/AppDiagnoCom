@@ -5,9 +5,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SE1FActivity">
+        tools:context=".SE2FActivity">
     <ImageView
-            android:id="@+id/se1f_app_background"
+            android:id="@+id/se2f_app_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -208,20 +208,6 @@
             style="@style/midRegularText"
             android:visibility="invisible"/>
     <Button
-            android:id="@+id/se1f_chain_btn"
-            android:text="@string/chain_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.957"
-            style="@style/loginButton"
-            app:layout_constraintHorizontal_bias="0.871"
-            android:onClick="get1stDiagnose"
-            android:visibility="invisible"/>
-    <Button
             android:id="@+id/se1f_back_btn"
             android:text="@string/back_btn"
             android:layout_width="wrap_content"
@@ -236,8 +222,8 @@
             android:onClick="se1fBackBtn"
             android:visibility="invisible"/>
     <Button
-            android:id="@+id/se1f_next_btn"
-            android:text="@string/next_btn"
+            android:id="@+id/se1f_chain_btn"
+            android:text="@string/chain_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -247,7 +233,7 @@
             app:layout_constraintVertical_bias="0.957"
             style="@style/loginButton"
             app:layout_constraintHorizontal_bias="0.871"
-            android:onClick="nextBtn"
+            android:onClick="get1stDiagnose"
             android:visibility="invisible"/>
     <Button
             android:id="@+id/se1f_exit_btn"
@@ -262,4 +248,6 @@
             style="@style/loginButton"
             app:layout_constraintHorizontal_bias="0.111"
             android:onClick="closeApp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,13 +7,13 @@
     <string name="app_icon">Icono de aplicacion login</string>
     <string name="login_alert">Presione acceder para comenzar</string>
     <string name="login_acc_btn">Acceder</string>
+    <string name="frame_bk">Background</string>
 
 
 
     <!-- ****** SE1F View Strings ****** -->
 
     <!-- SE1F Notice Elements START -->
-    <string name="se1f_app_background">Fondo de la vista se1f</string>
     <string name="se1f_notice">
         El presente sistema experto infiere un\n
         diagnóstico médico preliminar basado\n
@@ -31,8 +31,6 @@
     </string>
     <string name="se1f_accept_notice">Acepto</string>
     <string name="se1f_decline_notice">No acepto</string>
-    <!-- SE1F Notice Elements END -->
-
 
     <!-- SE1F Options Elements START -->
     <string name="se1f_frame_title">Lugar del malestar</string>
@@ -46,27 +44,60 @@
     <string name="se1f_d_urinario">Malestar al orinar</string>
     <string name="se1f_d_cutaneo">Malestar en la piel</string>
     <string name="se1f_next_directions">Presione siguiente para continuar con el\ndiagnóstico.</string>
-    <!-- SE1F Options Elements END -->
-
 
     <!-- SE1F Dx Elements START -->
     <string name="se1f_dx_introduction">
-        Por su respuesta se concluye\n que su afección concuerda\n
-        con un:
+        Por su respuesta se concluye\n que su afección concuerda\ncon un:
     </string>
     <string name="se1f_dx_empty">empty</string>
-    <string name="se1f_dx_cabeza">Dx: Afección cefálica</string>
-    <string name="se1f_dx_respiratorio">Dx: Afección respiratoria</string>
-    <string name="se1f_dx_digestivo">Dx: Afección digestiva</string>
-    <string name="se1f_dx_interno">Dx: Afección interna</string>
-    <string name="se1f_dx_urinario">Dx: Afección urinaria</string>
-    <string name="se1f_dx_cutaneo">Dx: Afección cutánea</string>
-    <!-- SE1F Dx Elements END -->
 
 
-    <!-- SEF1 button controls -->
-    <string name="se1f_back_btn">Regresar</string>
-    <string name="se1f_continue_btn">Siguiente</string>
-    <string name="se1f_exit_btn">Salir</string>
+
+    <!-- ****** SE2F View Strings ****** -->
+
+    <!-- SE2F Options Elements START -->
+    <string name="se2f_frame_title">Síntomas presentes</string>
+    <string name="se2f_frame_directions">
+        Seleccione las opciones que ha\nidentificado como síntomas.
+    </string>
+
+    <!-- CABEZA -->
+    <string name="se2f_cabeza_s1">Dolor de cabeza</string>
+    <string name="se2f_cabeza_s2">Presión arterial alta</string>
+    <string name="se2f_cabeza_s3">Fiebre</string>
+    <string name="se2f_cabeza_s4">Zumbido de oídos</string>
+    <string name="se2f_cabeza_s5">Náuseas</string>
+    <string name="se2f_cabeza_s6">Dolor de garganta</string>
+    <string name="se2f_cabeza_s7">Dolor de oído</string>
+
+    <!-- RESPIRATORIO -->
+    <string name="se2f_respiratorio_s1">Tos frecuente</string>
+    <string name="se2f_respiratorio_s2">Fiebre</string>
+    <string name="se2f_respiratorio_s3">Dolor de garganta</string>
+    <string name="se2f_respiratorio_s4">Dolor en el pecho</string>
+    <string name="se2f_respiratorio_s5">Escurrimiento nasal</string>
+    <string name="se2f_respiratorio_s6">Fátiga o cansancio</string>
+    <string name="se2f_respiratorio_s7">Congestion nasal</string>
+    <string name="se2f_respiratorio_s8">Dolor de cabeza</string>
+    <string name="se2f_respiratorio_s9">Cuerpo cortado</string>
+    <string name="se2f_respiratorio_s10">Dificultad para respirar</string>
+    <string name="se2f_respiratorio_s11">Estornudos</string>
+    <string name="se2f_respiratorio_s12">Dolor de articulaciones</string>
+    <string name="se2f_respiratorio_s13">Dolor de espalda</string>
+
+    <string name="se2f_next_directions">Presione siguiente para continuar con el\ndiagnóstico.</string>
+
+    <!-- SE2F Dx Elements START -->
+    <string name="se2f_dx_introduction">
+        Dados sus síntomas\n su diagnóstico\npreliminar es:
+    </string>
+    <string name="se2f_dx_empty">empty</string>
+
+
+    <!-- General button controls -->
+    <string name="back_btn">Regresar</string>
+    <string name="chain_btn">Encadenar</string>
+    <string name="next_btn">Siguiente</string>
+    <string name="exit_btn">Salir</string>
 
 </resources>

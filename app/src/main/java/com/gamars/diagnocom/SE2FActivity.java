@@ -1,13 +1,9 @@
 package com.gamars.diagnocom;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -16,10 +12,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class SE1FActivity extends AppCompatActivity {
+public class SE2FActivity extends AppCompatActivity {
     private final ArrayList<Integer> options = new ArrayList<>(Arrays.asList(
-        R.id.se1f_d_cabeza, R.id.se1f_d_respiratorio, R.id.se1f_d_digestivo,
-        R.id.se1f_d_interno, R.id.se1f_d_urinario, R.id.se1f_d_cutaneo
+        R.id.se2f_respiratorio_s1, R.id.se2f_respiratorio_s2, R.id.se2f_respiratorio_s3, R.id.se2f_respiratorio_s4,
+        R.id.se2f_respiratorio_s5, R.id.se2f_respiratorio_s6, R.id.se2f_respiratorio_s7, R.id.se2f_respiratorio_s8,
+        R.id.se2f_respiratorio_s9, R.id.se2f_respiratorio_s10, R.id.se2f_respiratorio_s11, R.id.se2f_respiratorio_s12
     ));
 
     private boolean viewOptionsItems = false;
@@ -32,31 +29,29 @@ public class SE1FActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // No NightMode
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR); // No screen rotation
 
-        setContentView(R.layout.activity_se1f);
+        Toast.makeText(getApplicationContext(), MainActivity.chainings.peek(), Toast.LENGTH_SHORT).show();
+        switch (MainActivity.chainings.peek()) {
+            case "Diagnóstico Encefálico" -> setContentView(R.layout.activity_se2f_cabeza);
+            case "Diagnóstico Respiratorio" -> setContentView(R.layout.activity_se2f_respiratorio);
+            case "Diagnóstico Digestivo" -> setContentView(R.layout.activity_se2f_digestivo);
+            case "Diagnóstico Interno" -> setContentView(R.layout.activity_se2f_interno);
+            case "Diagnóstico Urinario" -> setContentView(R.layout.activity_se2f_urinario);
+            case "Diagnóstico Cutáneo" -> setContentView(R.layout.activity_se2f_cutaneo);
+        }
+
+        //toggleViewOptionsItems();
     }
 
     /**
-     * Called when the user accepts the notice pressing a button
-     * @param v View from where the event is fired
-     */
-    public void noticeAccepted(View v) {
-        findViewById(R.id.se1f_notice).setVisibility(View.GONE);
-        findViewById(R.id.se1f_accept_notice).setVisibility(View.GONE);
-        findViewById(R.id.se1f_decline_notice).setVisibility(View.GONE);
-        Toast.makeText(getApplicationContext(), "¡Previo aviso aceptado!", Toast.LENGTH_SHORT).show();
-        toggleViewOptionsItems();
-    }
-
-    /**
-     * Sets the visibility for the radio options elements in the SE1F view
+     * Sets the visibility for the radio options elements in the SE2F view
      */
     private void toggleViewOptionsItems() {
         new ArrayList<View>(Arrays.asList(
-                findViewById(R.id.se1f_frame_title),
-                findViewById(R.id.se1f_frame_directions),
-                findViewById(R.id.se1f_options),
-                findViewById(R.id.se1f_next_directions),
-                findViewById(R.id.se1f_chain_btn)
+                findViewById(R.id.se2f_frame_title),
+                findViewById(R.id.se2f_frame_directions),
+                findViewById(R.id.se2f_options),
+                findViewById(R.id.se2f_next_directions),
+                findViewById(R.id.se2f_chain_btn)
         )).forEach(i -> i.setVisibility(viewOptionsItems ? View.INVISIBLE : View.VISIBLE));
         viewOptionsItems = !viewOptionsItems;
     }
@@ -67,11 +62,9 @@ public class SE1FActivity extends AppCompatActivity {
      * rule was fired as consequence of the user inputs
      * @param v View from where the event was fired
      */
-    public void get1stDiagnose(View v) {
-        RadioGroup options = findViewById(R.id.se1f_options);
-
-        if (options.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(getApplicationContext(), "Seleccione opción", Toast.LENGTH_SHORT).show();
+    public void get2ndDiagnose(View v) {
+        if (atLeast1SymptomChecked()) { // Todo must be negated duhhhh
+            Toast.makeText(getApplicationContext(), "Seleccione sus síntomas", Toast.LENGTH_SHORT).show();
         } else {
             toggleViewOptionsItems();
             doForwardChaining();
@@ -79,10 +72,16 @@ public class SE1FActivity extends AppCompatActivity {
         }
     }
 
+    private boolean atLeast1SymptomChecked() {
+        for (int opt : options) if (((CheckBox) findViewById(opt)).isChecked()) return true;
+        return false;
+    }
+
     private void doForwardChaining() {
         var choices = new ArrayList<String>();
-        for (int opt : options) choices.add(((RadioButton) findViewById(opt)).isChecked() ? "si" : "no");
-        handleResult(MainActivity.ruleBase.getAfeccion(choices));
+        choices.add(MainActivity.chainings.peek());
+        for (int opt : options) choices.add(((CheckBox) findViewById(opt)).isChecked() ? "si" : "no");
+        handleResult(MainActivity.ruleBase.getDx_Cabeza(choices));
     }
 
     private void handleResult(Object result) {
@@ -90,14 +89,9 @@ public class SE1FActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Resultado desconocido!", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(getApplicationContext(), "Hecho: ( " + result + " )", Toast.LENGTH_SHORT).show();
-            ((TextView) findViewById(R.id.se1f_dx_result)).setText(result.toString());
+            ((TextView) findViewById(R.id.se2f_dx_result)).setText(result.toString());
             MainActivity.chainings.push(result.toString());
         }
-    }
-
-    public void nextBtn(View v) {
-        Intent intent = new Intent(getApplicationContext(), SE2FActivity.class);
-        startActivity(intent);
     }
 
     /**
@@ -105,7 +99,7 @@ public class SE1FActivity extends AppCompatActivity {
      * view aka the view with the radio buttons
      * @param v View from where the event was fired
      */
-    public void se1fBackBtn(View v) {
+    public void se2fBackBtn(View v) {
         toggleViewDxItems();
 
 
@@ -121,10 +115,9 @@ public class SE1FActivity extends AppCompatActivity {
      */
     private void toggleViewDxItems() {
         new ArrayList<View>(Arrays.asList(
-                findViewById(R.id.se1f_dx_introduction),
-                findViewById(R.id.se1f_dx_result),
-                findViewById(R.id.se1f_back_btn),
-                findViewById(R.id.se1f_next_btn)
+                findViewById(R.id.se2f_dx_introduction),
+                findViewById(R.id.se2f_dx_result),
+                findViewById(R.id.se2f_back_btn)
         )).forEach(i -> i.setVisibility(viewDxItems ? View.INVISIBLE : View.VISIBLE));
         viewDxItems = !viewDxItems;
     }

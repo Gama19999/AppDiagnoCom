@@ -23,9 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-                android:name=".SE1FActivity"
-        />
+        <activity android:name=".SE1FActivity" />
+        <activity android:name=".SE2FActivity" />
     </application>
 
 </manifest>
